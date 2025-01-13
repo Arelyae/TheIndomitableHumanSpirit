@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b617411898455a46ac2a249e93507fc, type: 3}
+  m_Name: SubtitlesData
+  m_EditorClassIdentifier: 
+  SubtitlesEventList:
+  - name: Prototyping Test
+    LocalSubtitlesList:
+    - name: Please DO NOT announce to the server when you are going to masturbate.
+      audioFileToPlay: {fileID: 8300000, guid: 80bd22719882b9949a2db25dca07aaa3, type: 3}
+      offset: 0.5
+    - name: ' This has been a reoccurring issue'
+      audioFileToPlay: {fileID: 8300000, guid: e85e28ed6ebe8134db4052fd058baaac, type: 3}
+      offset: 0
