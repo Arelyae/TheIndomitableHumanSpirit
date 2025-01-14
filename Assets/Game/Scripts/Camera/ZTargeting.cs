@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ZTargetingPrototype : MonoBehaviour
+public class ZTargeting : MonoBehaviour
 {
     public Transform player;  // Reference to the player
     public Transform targetPoint;  // The point that will be positioned at the center of the line
@@ -44,6 +44,11 @@ public class ZTargetingPrototype : MonoBehaviour
 
             desiredPosition = (player.position + objectB.position) / 2;  // Midpoint between player and Object B
         }
+        else if (!isTargeting && targetPoint != null)
+        {
+            // If not targeting, move the target point back to the player's local origin (0, 0, 0)
+            desiredPosition = player.position;  // Return the target point to (0, 0, 0) relative to the player
+        }
     }
 
     private void TryStartZTargeting()
@@ -75,10 +80,7 @@ public class ZTargetingPrototype : MonoBehaviour
     {
         isTargeting = false;
         objectB = null;  // Clear the target
-        if (targetPoint != null)
-        {
-            desiredPosition = player.position;  // Return to the player's center when targeting is released
-        }
+        desiredPosition = player.position;  // Move the target point back to (0, 0, 0) relative to the player
     }
 
     private Transform FindNearestEnemy()
