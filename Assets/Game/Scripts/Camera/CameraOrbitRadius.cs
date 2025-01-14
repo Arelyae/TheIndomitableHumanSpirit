@@ -17,20 +17,19 @@ public class CameraOrbitRadius : MonoBehaviour
     [SerializeField] private float defaultMiddleHeight = 4f;
     [SerializeField] private float defaultBottomHeight = 0f;
 
-    [Header("Z-Targeting Camera Settings")]
-    [SerializeField] private float customTopRadius = 10f;
-    [SerializeField] private float customMiddleRadius = 9f;
-    [SerializeField] private float customBottomRadius = 8f;
-    [SerializeField] private float customTopHeight = 6f;
-    [SerializeField] private float customMiddleHeight = 3f;
-    [SerializeField] private float customBottomHeight = 0f;
+    [Header("Z-Targeting Settings")]
+    [SerializeField] private float targetRadiusOffset = 2f;  // Offset added to the radius during Z-targeting
+    [SerializeField] private float zTargetingFOV = 30f;  // FOV during Z-targeting
+    [SerializeField] private float defaultFOV = 50f;  // Default FOV during normal gameplay
 
     [Header("Smoothing Settings")]
     [SerializeField] private float smoothTimeZoom = 0.5f;  // Time to smoothly adjust the camera zoom
     [SerializeField] private float smoothTimeDezoom = 0.5f;  // Time to smoothly reset the camera
+    [SerializeField] private float fovSmoothingTime = 0.3f;  // Time to smoothly transition the FOV
 
     private float currentTopRadius, currentMiddleRadius, currentBottomRadius;
     private float currentTopHeight, currentMiddleHeight, currentBottomHeight;
+    private float currentFOVVelocity = 0f;  // Velocity for FOV smooth transition
     private bool isTargeting = false;
 
     /// <summary>
@@ -38,15 +37,8 @@ public class CameraOrbitRadius : MonoBehaviour
     /// </summary>
     private void Start()
     {
-        currentTopRadius = defaultTopRadius;
-        currentMiddleRadius = defaultMiddleRadius;
-        currentBottomRadius = defaultBottomRadius;
-
-        currentTopHeight = defaultTopHeight;
-        currentMiddleHeight = defaultMiddleHeight;
-        currentBottomHeight = defaultBottomHeight;
-
-        SetOrbitValues(defaultTopRadius, defaultMiddleRadius, defaultBottomRadius, defaultTopHeight, defaultMiddleHeight, defaultBottomHeight);
+        ResetToDefaultOrbit();  // Initialize the camera to default gameplay settings
+        freeLookCamera.m_Lens.FieldOfView = defaultFOV;  // Set default FOV
     }
 
     /// <summary>
@@ -76,25 +68,31 @@ public class CameraOrbitRadius : MonoBehaviour
     }
 
     /// <summary>
-    /// Adjusts the camera radii and heights to keep the player and target visible.
+    /// Adjusts the camera radii so that all orbits match the distance between the player and the target, with an additional offset.
+    /// Also transitions the FOV to the Z-targeting FOV.
     /// </summary>
     private void AdjustCameraForTargeting()
     {
         float distanceToTarget = Vector3.Distance(player.position, targetPoint.position);
 
-        currentTopRadius = Mathf.SmoothDamp(currentTopRadius, customTopRadius, ref smoothTimeZoom, smoothTimeDezoom);
-        currentMiddleRadius = Mathf.SmoothDamp(currentMiddleRadius, customMiddleRadius, ref smoothTimeZoom, smoothTimeDezoom);
-        currentBottomRadius = Mathf.SmoothDamp(currentBottomRadius, customBottomRadius, ref smoothTimeZoom, smoothTimeDezoom);
+        // All radii become equal to the distance between the player and the target plus offset
+        float targetRadius = distanceToTarget + targetRadiusOffset;
 
-        currentTopHeight = Mathf.SmoothDamp(currentTopHeight, customTopHeight, ref smoothTimeZoom, smoothTimeDezoom);
-        currentMiddleHeight = Mathf.SmoothDamp(currentMiddleHeight, customMiddleHeight, ref smoothTimeZoom, smoothTimeDezoom);
-        currentBottomHeight = Mathf.SmoothDamp(currentBottomHeight, customBottomHeight, ref smoothTimeZoom, smoothTimeDezoom);
+        // Smoothly update the radii
+        currentTopRadius = Mathf.SmoothDamp(currentTopRadius, targetRadius, ref smoothTimeZoom, smoothTimeDezoom);
+        currentMiddleRadius = Mathf.SmoothDamp(currentMiddleRadius, targetRadius, ref smoothTimeZoom, smoothTimeDezoom);
+        currentBottomRadius = Mathf.SmoothDamp(currentBottomRadius, targetRadius, ref smoothTimeZoom, smoothTimeDezoom);
 
-        SetOrbitValues(currentTopRadius, currentMiddleRadius, currentBottomRadius, currentTopHeight, currentMiddleHeight, currentBottomHeight);
+        // Smoothly transition the FOV to Z-targeting FOV
+        float currentFOV = freeLookCamera.m_Lens.FieldOfView;
+        freeLookCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(currentFOV, zTargetingFOV, ref currentFOVVelocity, fovSmoothingTime);
+
+        // Keep the heights at their default values
+        SetOrbitValues(currentTopRadius, currentMiddleRadius, currentBottomRadius, defaultTopHeight, defaultMiddleHeight, defaultBottomHeight);
     }
 
     /// <summary>
-    /// Resets the camera to default gameplay radii and heights.
+    /// Resets the camera to default gameplay radii, heights, and FOV.
     /// </summary>
     private void ResetToDefaultOrbit()
     {
@@ -102,11 +100,11 @@ public class CameraOrbitRadius : MonoBehaviour
         currentMiddleRadius = Mathf.SmoothDamp(currentMiddleRadius, defaultMiddleRadius, ref smoothTimeZoom, smoothTimeDezoom);
         currentBottomRadius = Mathf.SmoothDamp(currentBottomRadius, defaultBottomRadius, ref smoothTimeZoom, smoothTimeDezoom);
 
-        currentTopHeight = Mathf.SmoothDamp(currentTopHeight, defaultTopHeight, ref smoothTimeZoom, smoothTimeDezoom);
-        currentMiddleHeight = Mathf.SmoothDamp(currentMiddleHeight, defaultMiddleHeight, ref smoothTimeZoom, smoothTimeDezoom);
-        currentBottomHeight = Mathf.SmoothDamp(currentBottomHeight, defaultBottomHeight, ref smoothTimeZoom, smoothTimeDezoom);
+        // Smoothly transition the FOV back to default FOV
+        float currentFOV = freeLookCamera.m_Lens.FieldOfView;
+        freeLookCamera.m_Lens.FieldOfView = Mathf.SmoothDamp(currentFOV, defaultFOV, ref currentFOVVelocity, fovSmoothingTime);
 
-        SetOrbitValues(currentTopRadius, currentMiddleRadius, currentBottomRadius, currentTopHeight, currentMiddleHeight, currentBottomHeight);
+        SetOrbitValues(currentTopRadius, currentMiddleRadius, currentBottomRadius, defaultTopHeight, defaultMiddleHeight, defaultBottomHeight);
     }
 
     /// <summary>
