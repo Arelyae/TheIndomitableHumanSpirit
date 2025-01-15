@@ -408,7 +408,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 743688531024334510}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0518085, y: -0.000000012492042, z: -6.480641e-10, w: 0.99865705}
+  m_LocalRotation: {x: -0.09853762, y: -0.000000012284453, z: -0.0000000012164004,
+    w: 0.99513334}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -444,12 +445,12 @@ MonoBehaviour:
   m_LookAt: {fileID: 3426083477398555051}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 53.130104
+    FieldOfView: 49.99424
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 3
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -748,7 +749,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.5, z: -4.806013}
+  m_FollowOffset: {x: 0, y: -0.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -998,7 +999,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2200812097775127239}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0518085, y: -0.000000012492042, z: -6.480641e-10, w: 0.99865705}
+  m_LocalRotation: {x: -0.09853762, y: -0.000000012284453, z: -0.0000000012164004,
+    w: 0.99513334}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1034,12 +1036,12 @@ MonoBehaviour:
   m_LookAt: {fileID: 3426083477398555051}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 53.130104
+    FieldOfView: 49.99424
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 3
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -1224,20 +1226,21 @@ MonoBehaviour:
   freeLookCamera: {fileID: 7064811617405577232}
   player: {fileID: 5665638113026793686}
   targetPoint: {fileID: 3426083477398555051}
-  defaultTopRadius: 2.5
-  defaultMiddleRadius: 5
+  defaultTopRadius: 4
+  defaultMiddleRadius: 8
   defaultBottomRadius: 2.5
-  defaultTopHeight: 4
-  defaultMiddleHeight: 2
+  defaultTopHeight: 8
+  defaultMiddleHeight: 4
   defaultBottomHeight: -0.5
-  customTopRadius: 10
-  customMiddleRadius: 9
-  customBottomRadius: 8
-  customTopHeight: 4
-  customMiddleHeight: 2
-  customBottomHeight: -0.5
+  targetRadiusOffset: 6
+  zTargetingFOV: 55
+  defaultFOV: 60
+  zTargetingTopHeight: -8
+  zTargetingMiddleHeight: -4
+  zTargetingBottomHeight: -5
   smoothTimeZoom: 0.5
   smoothTimeDezoom: 0.5
+  fovSmoothingTime: 0.3
 --- !u!1 &2685264899342722392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.5, z: -4.806013}
+  m_FollowOffset: {x: 0, y: -0.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2088,7 +2091,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5270402648595646932}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0518085, y: 0.000000030678276, z: 0.0000000015915328, w: 0.99865705}
+  m_LocalRotation: {x: -0.09853763, y: 0.00000003315785, z: 0.0000000032832748, w: 0.99513334}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2124,12 +2127,12 @@ MonoBehaviour:
   m_LookAt: {fileID: 3426083477398555051}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 53.130104
+    FieldOfView: 49.99424
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 3
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -2202,7 +2205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 4
-  m_FollowOffset: {x: 0, y: -0.5, z: -4.806013}
+  m_FollowOffset: {x: 0, y: -0.5, z: -2.5}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -2887,7 +2890,7 @@ Transform:
   m_GameObject: {fileID: 7203684148208523855}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: -4.806013}
+  m_LocalPosition: {x: 0, y: -0.5, z: -2.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2915,15 +2918,15 @@ MonoBehaviour:
   m_Priority: 10
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 3426083477398555051}
-  m_Follow: {fileID: 5665638113026793686}
+  m_Follow: {fileID: 3426083477398555051}
   m_CommonLens: 1
   m_Lens:
-    FieldOfView: 53.130104
+    FieldOfView: 49.99424
     OrthographicSize: 10
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
-    ModeOverride: 3
+    ModeOverride: 2
     LensShift: {x: 0, y: 0}
     GateFit: 2
     FocusDistance: 10
@@ -2938,7 +2941,7 @@ MonoBehaviour:
   m_YAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 10
+    m_MaxSpeed: 5
     m_AccelTime: 0.2
     m_DecelTime: 0.1
     m_InputAxisName: RightJoystick Y
@@ -2962,7 +2965,7 @@ MonoBehaviour:
   m_XAxis:
     Value: 0
     m_SpeedMode: 0
-    m_MaxSpeed: 300
+    m_MaxSpeed: 200
     m_AccelTime: 0.1
     m_DecelTime: 0.1
     m_InputAxisName: RightJoystick X
@@ -2990,12 +2993,12 @@ MonoBehaviour:
   m_BindingMode: 4
   m_SplineCurvature: 1
   m_Orbits:
-  - m_Height: 5.928752
-    m_Radius: 3.1982
-  - m_Height: 2.610013
-    m_Radius: 6.856889
+  - m_Height: 8
+    m_Radius: 4
+  - m_Height: 4
+    m_Radius: 8
   - m_Height: -0.5
-    m_Radius: 4.806013
+    m_Radius: 2.5
   m_LegacyHeadingBias: 3.4028235e+38
   m_Rigs:
   - {fileID: 3958585119553211345}
