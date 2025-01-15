@@ -512,7 +512,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 59.82892
+  field of view: 59.99941
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -538,7 +538,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.28978416, y: 1.5128572e-15, z: -3.5855582e-15, w: 0.95709205}
+  m_LocalRotation: {x: 0.28978416, y: -0.000000011814849, z: 0.0000000035772494, w: 0.95709205}
   m_LocalPosition: {x: 0, y: 5.5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3847,33 +3847,44 @@ PrefabInstance:
     - target: {fileID: 383967930181923442, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 4
+      value: 3.772229
       objectReference: {fileID: 0}
     - target: {fileID: 383967930181923442, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -6
+      value: -5.938773
       objectReference: {fileID: 0}
     - target: {fileID: 880994276160884778, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 880994276160884778, guid: 11bda59b4f989d64b9826a99bcfa34c3,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 2341604389310839505, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 4
+      value: 3.772229
       objectReference: {fileID: 0}
     - target: {fileID: 2341604389310839505, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -6
+      value: -5.938773
       objectReference: {fileID: 0}
     - target: {fileID: 3262045841393467273, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: zTargetingFOV
       value: 45
       objectReference: {fileID: 0}
+    - target: {fileID: 3262045841393467273, guid: 11bda59b4f989d64b9826a99bcfa34c3,
+        type: 3}
+      propertyPath: zTargetingData
+      value: 
+      objectReference: {fileID: 11400000, guid: d96de58ce35ac514bba2c97226c29a6b,
+        type: 2}
     - target: {fileID: 3262045841393467273, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: defaultTopHeight
@@ -3927,12 +3938,12 @@ PrefabInstance:
     - target: {fileID: 3833011893105557350, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1.5128572e-15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3833011893105557350, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.5855582e-15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3851714268341834902, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
@@ -3947,17 +3958,17 @@ PrefabInstance:
     - target: {fileID: 3958585119553211345, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 59.82892
+      value: 59.99941
       objectReference: {fileID: 0}
     - target: {fileID: 4129950273403279311, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.y
-      value: 4
+      value: 3.772229
       objectReference: {fileID: 0}
     - target: {fileID: 4129950273403279311, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_FollowOffset.z
-      value: -6
+      value: -5.938773
       objectReference: {fileID: 0}
     - target: {fileID: 4311426894319396573, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
@@ -3977,17 +3988,17 @@ PrefabInstance:
     - target: {fileID: 4311426894319396573, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2897842
+      value: 0.28978416
       objectReference: {fileID: 0}
     - target: {fileID: 4311426894319396573, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.00000002852357
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4311426894319396573, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.000000008636243
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6381807923187925621, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
@@ -4012,12 +4023,12 @@ PrefabInstance:
     - target: {fileID: 6381807923187925621, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1.5128572e-15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6381807923187925621, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -3.5855582e-15
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7064811617405577232, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
@@ -4027,7 +4038,7 @@ PrefabInstance:
     - target: {fileID: 7064811617405577232, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 59.82892
+      value: 59.99941
       objectReference: {fileID: 0}
     - target: {fileID: 7064811617405577232, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
@@ -4077,12 +4088,12 @@ PrefabInstance:
     - target: {fileID: 8416488122153019091, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 59.82892
+      value: 59.99941
       objectReference: {fileID: 0}
     - target: {fileID: 8967359864272558578, guid: 11bda59b4f989d64b9826a99bcfa34c3,
         type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 59.82892
+      value: 59.99941
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
